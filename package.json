@@ -1,0 +1,37 @@
+{
+  "name": "dsh-h3-prompt-review",
+  "version": "0.1.0",
+  "description": "DSH agent preset that reviews and rewrites MiniMax H3 video prompts, shipping its own skills.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Weeexiao",
+  "homepage": "https://github.com/Weeexiao/dsh-h3-prompt-review#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Weeexiao/dsh-h3-prompt-review.git"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-bundle",
+    "agent-preset",
+    "minimax",
+    "h3",
+    "video-prompt"
+  ],
+  "files": [
+    "cordis.patch.yml",
+    "h3Skills.js",
+    "skills",
+    "README.md",
+    "LICENSE"
+  ],
+  "exports": {
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./h3Skills.js": "./h3Skills.js"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

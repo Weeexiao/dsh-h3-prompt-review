@@ -59,8 +59,8 @@
             name: '@deepseek-ai/dsh-tool-fs'
           - id: tool-fs-search
             name: '@deepseek-ai/dsh-tool-fs-search'
-          - id: skill
-            name: '@deepseek-ai/dsh-skill'
+            config:
+              sampleOverCapGlobResults: false
           - id: h3-skills
             name: 'dsh-h3-prompt-review/h3Skills.js'
           - id: tool-skill

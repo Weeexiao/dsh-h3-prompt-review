@@ -4,17 +4,23 @@ DeepSeek Harness（DSH）agent 预设：**MiniMax H3 视频提示词审查与重
 
 ## 安装
 
-在装了 DSH 的机器上：
+**桌面版**：打开插件管理，安装下面的包 specifier
 
-```bash
-dsh plugin install github:Weeexiao/dsh-h3-prompt-review
+```
+github:Weeexiao/dsh-h3-prompt-review
 ```
 
-或克隆后装本地路径：
+**命令行**（`--profile` 必填，桌面保留 profile 需由桌面版自己管理）：
 
 ```bash
-git clone https://github.com/Weeexiao/dsh-h3-prompt-review.git
-dsh plugin install ./dsh-h3-prompt-review
+dsh plugin --profile <profile> add github:Weeexiao/dsh-h3-prompt-review
+```
+
+GitHub 直连不稳时，先走 SSH 443 克隆，再装本地路径：
+
+```bash
+git clone ssh://git@ssh.github.com:443/Weeexiao/dsh-h3-prompt-review.git
+dsh plugin --profile <profile> add ./dsh-h3-prompt-review
 ```
 
 装完新开一个会话，在预设/模式里选「**H3 提示词审查**」。无需重启，技能已随包注册。
@@ -22,8 +28,10 @@ dsh plugin install ./dsh-h3-prompt-review
 卸载：
 
 ```bash
-dsh plugin remove dsh-h3-prompt-review
+dsh plugin --profile <profile> remove dsh-h3-prompt-review
 ```
+
+> DSH 会在 `github:` 安装前做 5 秒连通性检查，网络抖动时会直接报 `connection to github.com timed out`，此时用上面的克隆方式。
 
 ## 这个 agent 做什么
 
@@ -61,13 +69,11 @@ dsh plugin remove dsh-h3-prompt-review
 改人设：编辑 `cordis.patch.yml` 的 `persona.prefix`。
 改技能：直接改 `skills/<name>/SKILL.md` 或 `references/`。
 
-改完重装一次让 DSH 重新加载：
+改完重新装一次让 DSH 重新加载。本地开发建议直接用路径安装，pnpm 会做软链，改完只需重新 apply：
 
 ```bash
-dsh plugin install ./dsh-h3-prompt-review
+dsh plugin --profile <profile> add /绝对路径/dsh-h3-prompt-review
 ```
-
-本地开发时也可以直接指向仓库目录（`dsh plugin install /绝对路径`），pnpm 会做软链，改完只需重新 apply。
 
 ## 许可
 

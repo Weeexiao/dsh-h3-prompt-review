@@ -26,5 +26,8 @@ function readSkill(dir) {
 }
 
 export function apply(ctx) {
-  for (const dir of skillDirs) ctx.skills.register(readSkill(dir));
+  for (const dir of skillDirs) {
+    const skill = readSkill(dir);
+    ctx.effect(() => ctx.skills.register(skill));
+  }
 }

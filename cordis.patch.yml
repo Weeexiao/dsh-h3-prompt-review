@@ -55,8 +55,15 @@
                 - 六段说明与结构字段用英文；<d> 内台词、歌词与画面可见文字保留原语言。
                 - 只给建议不算完成：必须交付重写版。
                 - 同一问题只问一次；能靠推理与技能规则确定的直接给结论。
-          - name: '@deepseek-ai/dsh-tool-fs'
-          - name: '@deepseek-ai/dsh-tool-fs-search'
-          - name: 'dsh-h3-prompt-review/h3Skills.js'
-          - name: '@deepseek-ai/dsh-tool-skill'
-          - name: '@deepseek-ai/dsh-tool-ask-user'
+          - id: tool-fs
+            name: '@deepseek-ai/dsh-tool-fs'
+          - id: tool-fs-search
+            name: '@deepseek-ai/dsh-tool-fs-search'
+          - id: skill
+            name: '@deepseek-ai/dsh-skill'
+          - id: h3-skills
+            name: 'dsh-h3-prompt-review/h3Skills.js'
+          - id: tool-skill
+            name: '@deepseek-ai/dsh-tool-skill'
+          - id: tool-ask-user
+            name: '@deepseek-ai/dsh-tool-ask-user'
